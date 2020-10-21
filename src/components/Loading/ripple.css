@@ -1,0 +1,9 @@
+._ripple-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+._ripple-screen {
+  min-height: 100vh;
+}

@@ -1,5 +1,5 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import PrivateRoute from "./PrivateRoute";
 import {
@@ -39,7 +39,7 @@ function App() {
 			
 					<Route exact path="/" component={WithCountry(LandingPage)} />
 					<Route exact path="/product_list/" component={WithCountry(CategoryPage)} />
-					<Route exact path="/register" component={WithCountry(RegistrationFormPage)} /> */}
+					<Route exact path="/register" component={WithCountry(RegistrationFormPage)} />
 					<Route exact path="/login" component={WithCountry(LoginFormPage)} />
 					<Route exact path="/product_detail/:id" component={AdViewPage}/>
 					<Switch>
