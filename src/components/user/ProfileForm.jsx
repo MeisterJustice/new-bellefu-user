@@ -10,9 +10,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { update } from "../../redux/actions/userActon";
 import Axios from "axios";
 import { useEffect } from "react";
+import SnackBar from "../SnackBar/SnackBar";
 
 export default function ProfileForm() {
   const dispatch = useDispatch();
+  const [snack, setsnack] = useState({
+    view: false,
+    type: "",
+    message: "",
+  });
   const userSignin = useSelector((state) => state.userSignin);
   const { user } = userSignin;
   const [bio, setBio] = useState("");
@@ -63,6 +69,19 @@ export default function ProfileForm() {
       }
     )
       .then(() => {
+        setsnack({
+          view: true,
+          type: "success",
+          message: "Profile update successful",
+        });
+
+        setTimeout(() => {
+          setsnack({
+            view: false,
+            type: "",
+            message: "",
+          });
+        }, 2800);
         setUpdateData({
           first_name: "",
           last_name: "",
@@ -76,11 +95,26 @@ export default function ProfileForm() {
           avatar: "",
         });
       })
-      .catch((err) => {});
+      .catch((err) => {
+        setsnack({
+          view: true,
+          type: "error",
+          message: "Something went wrong, please try again! ",
+        });
+
+        setTimeout(() => {
+          setsnack({
+            view: false,
+            type: "",
+            message: "",
+          });
+        }, 2800);
+      });
   };
 
   return (
     <div>
+      {snack.view && <SnackBar type={snack.type}>{snack.message}</SnackBar>}
       <Form onSubmit={handleSubmmit}>
         <Card className="border-0">
           <Card.Header className="bg-white ">

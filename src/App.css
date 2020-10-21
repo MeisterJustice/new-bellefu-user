@@ -1,34 +1,77 @@
-html{
-    background-color:  whitesmoke
+html {
+  background-color: whitesmoke;
 }
-body{
-    background-color: whitesmoke  ;
-   align-content: flex-start
+body {
+  background-color: whitesmoke;
+  align-content: flex-start;
 }
-.preLoader{
-    width: 40px;
-    vertical-align: 49%;
-    left: 46.5%;
+.preLoader {
+  width: 40px;
+  vertical-align: 49%;
+  left: 46.5%;
 }
-.preLoaderContent > .modal-dialog > .modal-content{
-    background-color: transparent !important;
-    border: 0;
+.preLoaderContent > .modal-dialog > .modal-content {
+  background-color: transparent !important;
+  border: 0;
 }
 
 .cursor {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .flag {
-    width: 15px;
-    height: 15px;
+  width: 15px;
+  height: 15px;
 }
 
 .text {
-    color: #ffa500;
+  color: #ffa500;
 }
 
 .country:hover {
-    color: #ffa500;
-    transition: 0.2s all ease-in;
+  color: #ffa500;
+  transition: 0.2s all ease-in;
+}
+
+._snackbar {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  right: 40px;
+  transition: 0.43s ease all;
+  animation: 0.75s snackIn 1 forwards;
+  border-radius: 6px;
+  z-index: 500000;
+  padding: 20px 25px;
+}
+
+._snackbar.close {
+  transition: 0.43s ease all;
+  animation: 0.75s snackOut 1 forwards;
+}
+
+@keyframes snackIn {
+  from {
+    display: flex;
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes snackOut {
+  from {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0;
+  }
+
+  to {
+    display: block;
+  }
 }
