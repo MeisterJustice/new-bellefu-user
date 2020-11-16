@@ -42,7 +42,6 @@ function PostAd(props) {
     //ONCHANGE FOR OTHER INPUTS
     const onChangeHandler = e => {
         setProductData({...productData, [e.target.name]: e.target.value});
-
     };
 
     const onCategoryChange = (e) => {
