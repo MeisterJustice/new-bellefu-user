@@ -7,7 +7,6 @@ import { IconContext } from 'react-icons/lib';
 import { Link } from 'react-router-dom';
 import Select from "react-select";
 import Cookie from 'js-cookie';
-const {Translate} = require('@google-cloud/translate').v2;
 
 
 
@@ -36,25 +35,7 @@ const MobileInput = (props) => {
 		setCategory(option)
 	}
 
-	const trans = async() => {
-		const translate = await new Translate({key: props.id})
-		if(language === 'en'){
-			setText(originalText)
-		} else {
 
-			translate.translate(text, language)
-				.then((res) => {
-					setText(res[0])
-				
-			}).catch(() => {
-				setText(originalText)
-				})
-		}
-	}
-	  
-	useEffect( () => {
-		trans()
-	}, [props.id, language])
 
 
 

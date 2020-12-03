@@ -12,7 +12,6 @@ import Axios from "axios";
 import { useEffect } from "react";
 import SnackBar from "../SnackBar/SnackBar";
 import Preloader from "./Preloader";
-const { Translate } = require("@google-cloud/translate").v2;
 
 export default function ProfileForm(props) {
   const [loading, setLoading] = useState(false);
@@ -77,25 +76,7 @@ export default function ProfileForm(props) {
     "Update",
   ]);
 
-  const trans = async () => {
-    const translate = await new Translate({ key: props.id });
-    if (props.language === "en") {
-      setText(originalText);
-    } else {
-      translate
-        .translate(text, props.language)
-        .then((res) => {
-          setText(res[0]);
-        })
-        .catch(() => {
-          setText(originalText);
-        });
-    }
-  };
 
-  useEffect(() => {
-    trans();
-  }, [props.id, props.language]);
 
   const handleOnChange = (event) => {
     const { name, value } = event.target;

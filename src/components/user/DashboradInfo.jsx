@@ -10,7 +10,6 @@ import { useSelector } from "react-redux";
 import Axios from "axios";
 import Ripple from "../Loading/Ripple";
 import { useEffect } from 'react';
-const {Translate} = require('@google-cloud/translate').v2;
 
 
 export default function DashboradInfo(props) {
@@ -62,25 +61,7 @@ export default function DashboradInfo(props) {
     "My Wallet Balance",
 	])
 
-	const trans = async() => {
-		const translate = await new Translate({key: props.id})
-		if(props.language === 'en'){
-			setText(originalText)
-		} else {
 
-			translate.translate(text, props.language)
-				.then((res) => {
-					setText(res[0])
-				
-			}).catch(() => {
-				setText(originalText)
-				})
-		}
-	}
-	  
-	useEffect( () => {
-		trans()
-  }, [props.id, props.language])
   
   useEffect(() => {
 	fetchDashboard()

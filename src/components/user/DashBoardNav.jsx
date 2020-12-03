@@ -18,7 +18,6 @@ import {IoMdTime, IoIosLogIn} from 'react-icons/io';
 import {GoVerified} from 'react-icons/go';
 import {MdDateRange} from 'react-icons/md';
 
-const {Translate} = require('@google-cloud/translate').v2;
 
 
 export default function DashBoardNav(props) {
@@ -56,25 +55,7 @@ export default function DashBoardNav(props) {
 	])
 
 
-	const trans = async() => {
-		const translate = await new Translate({key: props.id})
-		if(props.language === 'en'){
-			setText(originalText)
-		} else {
 
-			translate.translate(text, props.language)
-				.then((res) => {
-					setText(res[0])
-				
-			}).catch(() => {
-				setText(originalText)
-				})
-		}
-	}
-	  
-	useEffect( () => {
-		trans()
-	}, [props.id, props.language])
     return (
         <div>
             <Card className="border-0">

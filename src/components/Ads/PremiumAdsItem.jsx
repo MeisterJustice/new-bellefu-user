@@ -20,8 +20,7 @@ import Fav from "./Fav";
 import MobileAds from "./MobileAds";
 import { useEffect } from 'react';
 import Axios from 'axios';
-import Quotation from '../slideshow/Quotation';
-const {Translate} = require('@google-cloud/translate').v2;
+
 
 const PremiumAdsItem = (props) => {
     const [id, setId] = useState('')
@@ -34,27 +33,6 @@ const PremiumAdsItem = (props) => {
         props.data.plan
     ])
     
-
-
-	const trans = async() => {
-		const translate = await new Translate({key: props.id})
-		if(props.language === 'en'){
-			setText(originalText)
-		} else {
-
-			translate.translate(text, props.language)
-				.then((res) => {
-					setText(res[0])
-				
-			}).catch(() => {
-				setText(originalText)
-				})
-		}
-	}
-	  
-	useEffect( () => {
-		trans()
-    }, [props.id, props.language])
    
     
     return (

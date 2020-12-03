@@ -29,7 +29,6 @@ import axios from "axios";
 import Fav from "../Ads/Fav";
 import Price from "../Ads/Price";
 import Axios from 'axios';
-const {Translate} = require('@google-cloud/translate').v2;
 
 const CategoryPageItem = (props) => {
     const [id, setId] = useState('')
@@ -44,25 +43,6 @@ const CategoryPageItem = (props) => {
     ])
     
 
-	const trans = async() => {
-		const translate = await new Translate({key: props.id})
-		if(props.language === 'en'){
-			setText(originalText)
-		} else {
-
-			translate.translate(text, props.language)
-				.then((res) => {
-					setText(res[0])
-				
-			}).catch(() => {
-				setText(originalText)
-				})
-		}
-	}
-	  
-	useEffect( () => {
-		trans()
-	}, [props.id, props.language])
     
     return (
         <Col

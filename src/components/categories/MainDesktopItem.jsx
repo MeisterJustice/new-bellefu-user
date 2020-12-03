@@ -5,7 +5,6 @@ import { ListGroup, Row, Col, Image, Accordion, Card } from "react-bootstrap";
 import { IoMdArrowDropright } from "react-icons/io";
 import { useEffect } from 'react';
 import MainDesktop2 from './MainDesktop2';
-const {Translate} = require('@google-cloud/translate').v2;
 
 
 
@@ -17,25 +16,7 @@ const MainDesktopItem = (props) => {
 		props.data.name,
     ])
 
-    const trans = async() => {
-		const translate = await new Translate({key: props.id})
-		if(props.language === 'en'){
-			setText(originalText)
-		} else {
-
-			translate.translate(text, props.language)
-				.then((res) => {
-					setText(res[0])
-				
-			}).catch(() => {
-				setText(originalText)
-				})
-		}
-	}
-	  
-	useEffect( () => {
-		trans()
-	}, [props.id, props.language])
+    
     return (
         <Accordion>
         <Card className="border-0 cursor">

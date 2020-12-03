@@ -8,7 +8,6 @@ import { useEffect } from 'react';
 import SuccessModal from "./LoginSuccessModal";
 import Axios from "axios";
 import SnackBar from "../SnackBar/SnackBar";
-const {Translate} = require('@google-cloud/translate').v2;
 
 
  function RegisterationFrom(props) {
@@ -84,25 +83,7 @@ const {Translate} = require('@google-cloud/translate').v2;
 		})
 	}
 
-	const trans = async() => {
-		const translate = await new Translate({key: id})
-		if(props.language === 'en' || id.length < 2){
-			setText(originalText)
-		} else {
 
-			translate.translate(text, props.language)
-				.then((res) => {
-					setText(res[0])
-				
-			}).catch(() => {
-				setText(originalText)
-				})
-		}
-	}
-	  
-	useEffect( () => {
-		trans()
-	}, [id, props.language])
 
 	useEffect(() => {
 		load()

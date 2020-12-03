@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import Axios from "axios";
 import Cookie from 'js-cookie'
 import { useEffect } from "react";
-const {Translate} = require('@google-cloud/translate').v2;
 
 
 export default function DesktopInput(props) {
@@ -43,25 +42,6 @@ export default function DesktopInput(props) {
 		})
 	}
 
-	const trans = async() => {
-		const translate = await new Translate({key: id})
-		if(language === 'en' || id.length < 2){
-			setText(originalText)
-		} else {
-
-			translate.translate(text, language)
-				.then((res) => {
-					setText(res[0])
-				
-			}).catch(() => {
-				setText(originalText)
-				})
-		}
-	}
-	  
-	useEffect( () => {
-		trans()
-	}, [id, language])
 
 
 	const loadCategory = () => {

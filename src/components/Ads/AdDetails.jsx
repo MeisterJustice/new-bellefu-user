@@ -16,7 +16,6 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { useSelector } from "react-redux";
 import SnackBar from "../SnackBar/SnackBar";
 
-const {Translate} = require('@google-cloud/translate').v2;
 
 
 function AdDetails(props) {
@@ -138,25 +137,7 @@ function AdDetails(props) {
 		})
 	}
 
-	const trans = async() => {
-		const translate = await new Translate({key: props.id})
-		if(props.language === 'en'){
-			setText(originalText)
-		} else {
 
-			translate.translate(text, props.language)
-				.then((res) => {
-					setText(res[0])
-				
-			}).catch(() => {
-				setText(originalText)
-				})
-		}
-	}
-	  
-	useEffect( () => {
-		trans()
-	}, [props.id])
 	
 	const handleReport = (e) => {
 		e.preventDefault()

@@ -1,9 +1,15 @@
 import React from 'react';
+import HeaderNav from '../navigations/HeaderNav';
 
 export default function TermsConditionPage() {
     return (
+        <div>
+            <HeaderNav/>
         <div className="container">
-            <div className="text-center" style={{ marginTop: "10%", marginBottom: "10%"}}>
+            <div className="text-center  d-none d-lg-block  d-md-none " style={{ marginTop: "10%", marginBottom: "10%"}}>
+            <h3 style={{fontWeight: 'bold', color: '#ffa500', marginTop: "10%"}}>TERMS & CONDITION OF USE</h3>
+            </div>
+            <div className="text-center d-lg-none  d-xs-block d-sm-block d-md-block" style={{ marginTop: "30%", marginBottom: "10%"}}>
             <h3 style={{fontWeight: 'bold', color: '#ffa500', marginTop: "10%"}}>TERMS & CONDITION OF USE</h3>
             </div>
             <h5 style={{fontWeight: 'bold'}}>1. ACCEPTANCE OF THE TERMS</h5>
@@ -420,5 +426,6 @@ export default function TermsConditionPage() {
                 Company.
             </p>
         </div>
+    </div>
     );
 }

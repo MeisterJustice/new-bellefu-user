@@ -1,5 +1,8 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import 'uikit/dist/css/uikit.min.css'
+import UIkit from 'uikit'
+import Icons from 'uikit/dist/js/uikit-icons'
 import "./App.css";
 import PrivateRoute from "./PrivateRoute";
 import {
@@ -47,6 +50,7 @@ import LegalPage from "./components/app/LegalPage"
 
 
 function App(props) {
+	UIkit.use(Icons)
 	return (
 		
 			<div className="App">

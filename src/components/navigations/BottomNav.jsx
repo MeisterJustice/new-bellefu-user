@@ -9,7 +9,6 @@ import Axios from "axios";
 import { useState } from "react";
 import Cookie from 'js-cookie'
 import { useEffect } from "react";
-const {Translate} = require('@google-cloud/translate').v2;
 
 
 
@@ -53,25 +52,6 @@ export default function BottomNav() {
 		load()
 	}, [])
 
-	const trans = async() => {
-		const translate = await new Translate({key: id})
-		if(language === 'en' || id.length < 2){
-			setText(originalText)
-		} else {
-
-			translate.translate(text, language)
-				.then((res) => {
-					setText(res[0])
-				
-			}).catch(() => {
-				setText(originalText)
-				})
-		}
-	}
-	  
-	useEffect( () => {
-		trans()
-	}, [id, language])
 
 	return (
 		<div className="d-sm-none  ">

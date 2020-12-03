@@ -5,7 +5,6 @@ import {
 	IoIosArrowDropleftCircle,
 	IoIosArrowDroprightCircle
 } from "react-icons/io";
-const {Translate} = require('@google-cloud/translate').v2;
 
 
 const ProductTitle = (props) => {
@@ -30,25 +29,7 @@ const ProductTitle = (props) => {
         ])
     }, [props]);
     
-    const trans = async() => {
-		const translate = await new Translate({key: props.id})
-		if(props.language === 'en'){
-			setText(originalText)
-		} else {
 
-			translate.translate(text, props.language)
-				.then((res) => {
-					setText(res[0])
-				
-			}).catch(() => {
-				setText(originalText)
-				})
-		}
-	}
-	  
-	useEffect( () => {
-		trans()
-    }, [props.id, props])
 	return (
 		<div>
 			{/* ===FOR DESKTOP VIEW=== */}

@@ -9,7 +9,6 @@ import { useEffect } from 'react';
 import SuccessModal from "./LoginSuccessModal";
 import SnackBar from "../SnackBar/SnackBar";
 import Axios from "axios";
-const {Translate} = require('@google-cloud/translate').v2;
 
 
 function LogInForm(props) {
@@ -70,25 +69,7 @@ function LogInForm(props) {
 		})
 	}
 
-	const trans = async() => {
-		const translate = await new Translate({key: id})
-		if(props.language === 'en' || id.length < 2){
-			setText(originalText)
-		} else {
 
-			translate.translate(text, props.language)
-				.then((res) => {
-					setText(res[0])
-				
-			}).catch(() => {
-				setText(originalText)
-				})
-		}
-	}
-	  
-	useEffect( () => {
-		trans()
-	}, [id, props.language])
 
 	useEffect(() => {
 		load()

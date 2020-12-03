@@ -1,11 +1,17 @@
 import React from 'react';
+import HeaderNav from '../navigations/HeaderNav';
 
 export default function PolicyPage() {
     return (
         <div>
-            <section id="policy" class="text-center d-block">
-                <div class="container">
-                    <h3 style={{color: "#ffa500", paddingTop: "5%" , paddingBottom: "10px"}}>
+            <HeaderNav />
+            <section id="policy" className="text-center d-block">
+                <div className="container">
+                    <h3   className=" d-none d-lg-block  d-md-none" style={{color: "#ffa500", marginTop: "10%" , paddingBottom: "10px"}}>
+                        {' '}
+                        <u>BELLEFU PRIVACY POLICY</u>
+                    </h3>
+                    <h3   className="  d-lg-none  d-xs-block d-sm-block d-md-block" style={{color: "#ffa500", marginTop: "30%" , paddingBottom: "10px"}}>
                         {' '}
                         <u>BELLEFU PRIVACY POLICY</u>
                     </h3>

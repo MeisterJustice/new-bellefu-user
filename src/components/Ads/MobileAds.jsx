@@ -19,8 +19,7 @@ import { useSelector } from "react-redux";
 import Price from "./Price";
 import Fav from "./Fav";
 import Axios from "axios";
-import Quotation from "../slideshow/Quotation";
-const {Translate} = require('@google-cloud/translate').v2;
+
 
 
 const MobileAds = (props) => {
@@ -41,25 +40,6 @@ const MobileAds = (props) => {
     ])
 
 
-	const trans = async() => {
-		const translate = await new Translate({key: props.id})
-		if(props.language === 'en'){
-			setText(originalText)
-		} else {
-
-			translate.translate(text, props.language)
-				.then((res) => {
-					setText(res[0])
-				
-			}).catch(() => {
-				setText(originalText)
-				})
-		}
-	}
-	  
-	useEffect( () => {
-		trans()
-	}, [props.id, props.language])
     
     
 return (
@@ -166,11 +146,6 @@ return (
         </Row>
     </div>
 </div>
-        {props.index % 15 === 0 && (
-                <div className="mt-3 d-none">
-                    <Quotation />
-                </div>
-            )}
     </Container>
 )
 }

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Pagination from "reactjs-hooks-pagination";
 import Preloader from "./Preloader";
 import axios from "axios";
 import { useSelector } from "react-redux";

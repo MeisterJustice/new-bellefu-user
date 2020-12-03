@@ -7,7 +7,6 @@ import Moment from "react-moment";
 import { FaCheckCircle, FaMobileAlt, FaRegCommentDots, FaWhatsapp } from "react-icons/fa";
 import { IconContext } from "react-icons/lib";
 import { GoVerified } from "react-icons/go";
-const {Translate} = require('@google-cloud/translate').v2;
 
 
 const renderTooltip = (props) => (
@@ -46,25 +45,6 @@ export default function UserAdInfo(props) {
 		console.log('this is profile: ', userprofile)
 	}, [props]);
 
-	const trans = async() => {
-		const translate = await new Translate({key: props.id})
-		if(props.language === 'en'){
-			setText(originalText)
-		} else {
-
-			translate.translate(text, props.language)
-				.then((res) => {
-					setText(res[0])
-				
-			}).catch(() => {
-				setText(originalText)
-				})
-		}
-	}
-	  
-	useEffect( () => {
-		trans()
-	}, [props.id])
 	
 	
 	return (

@@ -1,13 +1,13 @@
 import React from 'react'
 import { Carousel, Card, Form, Button } from "react-bootstrap";
 import { Link } from 'react-router-dom';
-import Quotation from './Quotation';
+
 
 
 export default function AdSlide() {
     return (
         <div>
-			<Quotation />
+		
 			<Link to="#">
 				<div className="mt-4">
 				

@@ -5,7 +5,6 @@ import { GiTrumpetFlag } from "react-icons/gi";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { useSelector } from "react-redux";
 import SnackBar from "../SnackBar/SnackBar";
-const {Translate} = require('@google-cloud/translate').v2;
 
 
 export default function AdSafetyTip(props) {
@@ -46,26 +45,7 @@ export default function AdSafetyTip(props) {
 		'product reported successfully',
 		'an error occured'
 	])
-	
-	const trans = async() => {
-		const translate = await new Translate({key: props.id})
-		if(props.language === 'en'){
-			setText(originalText)
-		} else {
 
-			translate.translate(text, props.language)
-				.then((res) => {
-					setText(res[0])
-				
-			}).catch(() => {
-				setText(originalText)
-				})
-		}
-	}
-	  
-	useEffect( () => {
-		trans()
-    }, [props.id])
 
 	const handleChange = (e) => {
 		setReportBody({

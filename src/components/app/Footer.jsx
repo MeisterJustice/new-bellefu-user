@@ -5,12 +5,10 @@ import Axios from "axios";
 import { Link } from "react-router-dom";
 // import '../../../public/'
 
-const {Translate} = require('@google-cloud/translate').v2;
 
 export default function Footer() {
 	const [id, setId] = useState('')
 	const [language, setLanguage] = useState(Cookie.get('language' || 'en'))
-	const translate = new Translate({key: id})
     const [text, setText] = useState([
 		'About Us',
 		'Bellefu.com is a dynamic online marketplace dedicated to agriculture-related activities ensuring farmers, buyers, and sellers of agricultural products have direct contact with other agro-allied providers and manufacturing industries around the world. Bellefu is designed to make searching for agro products available at your fingertips.',
@@ -66,25 +64,7 @@ export default function Footer() {
 		})
 	}
 
-	const trans = async() => {
-		const translate = await new Translate({key: id})
-		if(language === 'en' || id.length < 2){
-			setText(originalText)
-		} else {
 
-			translate.translate(text, language)
-				.then((res) => {
-					setText(res[0])
-				
-			}).catch(() => {
-				setText(originalText)
-				})
-		}
-	}
-	  
-	useEffect( () => {
-		trans()
-	}, [id, language])
  
 	useEffect(() => {
 		load()
@@ -266,13 +246,13 @@ export default function Footer() {
 						<div className="py-3" style={{display: 'flex', justifyContent: 'flex-start'}}>
 							<div>
 								<h5 style={{color: "white", fontSize: '15px'}}>{text[19]}</h5>
-								<h6 className="mt-2" style={{color: "white" , opacity: "0.4", fontSize: '12px'}}>9550 forestlane Dallas 75243, Dallas, TX, US</h6>
+								<h6 className="mt-2" style={{color: "white" , opacity: "0.4", fontSize: '12px'}}>9550 Forestlane <br/> Dallas 75243,<br/> TX, US</h6>
 							</div>
 							<div className="ml-lg-5 ml-2">
 								<h5 style={{color: "white" , fontSize: '15px'}}>{text[20]}</h5>
 								<h6 className="mt-2" style={{color: "white" , opacity: "0.4", fontSize: '12px'}}>+1 (214) 447-5585 USA</h6>
-								<h6 className="mt-2" style={{color: "white" , opacity: "0.4", fontSize: '12px'}}>+234-813 668 6060 Nigeria</h6>
-								<h6 className="mt-2" style={{color: "white" , opacity: "0.4", fontSize: '12px'}}>+27 74 749 0611 South Africa</h6>
+								<h6 className="mt-2" style={{color: "white" , opacity: "0.4", fontSize: '12px'}}>+(234) 813 668 6060 Nigeria</h6>
+								<h6 className="mt-2" style={{color: "white" , opacity: "0.4", fontSize: '12px'}}>+(27) 62 579 5507 South Africa</h6>
 							</div>
 							<div style={{marginTop: '-10px'}} className="ml-5 d-none d-lg-block">
 								<a href="#">

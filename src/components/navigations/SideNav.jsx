@@ -66,6 +66,33 @@ export default function SideNav() {
 						</a>
 						</div>
 						<div className="mb-3">
+						<a href="https://bellefu.info"
+							target="_blank"
+							style={{ color: "inherit", textDecoration: "inherit" }}>
+							<Button  className="rounded-0" variant="dark" size="sm" block>
+								Bellefu Radio
+							</Button>
+						</a>
+						</div>
+						<div className="mb-3">
+						<a href="https://chat.whatsapp.com/IJW6VM4aVnG6AOASxx9VIV"
+							target="_blank"
+							style={{ color: "inherit", textDecoration: "inherit" }}>
+							<Button  className="rounded-0" variant="dark" size="sm" block>
+								Training
+							</Button>
+						</a>
+						</div>
+						<div className="mb-3">
+						<a href="https://webinar.bellefu.com"
+							target="_blank"
+							style={{ color: "inherit", textDecoration: "inherit" }}>
+							<Button  className="rounded-0" variant="dark" size="sm" block>
+								Webinar
+							</Button>
+						</a>
+						</div>
+						<div className="mb-3">
 						<a href="/login"
 						className={`${
 							Cookie.get("user")

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import Pagination from "reactjs-hooks-pagination";
 import Preloader from "../user/Preloader";
 import { Link } from "react-router-dom";
 import axios from "axios";

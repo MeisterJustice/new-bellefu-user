@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useEffect } from "react";
 import Cookie from 'js-cookie'
-const {Translate} = require('@google-cloud/translate').v2;
 
 const SubcategoryItem = (props) => {
     const [language, setLanguage] = useState(Cookie.get('language' || 'en'))
@@ -16,25 +15,7 @@ const SubcategoryItem = (props) => {
 		'ads',
 	])
 
-    const trans = async() => {
-		const translate = await new Translate({key: props.id})
-		if(props.language === 'en'){
-			setText(originalText)
-		} else {
-
-			translate.translate(text, props.language)
-				.then((res) => {
-					setText(res[0])
-				
-			}).catch(() => {
-				setText(originalText)
-				})
-		}
-	}
-	  
-	useEffect( () => {
-		trans()
-	}, [props.id, props.language])
+    
  return (
     <div style={{borderBottom: '1px solid #bab8b8'}} className="py-2">
     <Link to={`/product_list?subcategory=${props.data.slug}&category=${props.match.params.category_id}&country=${props.userCountry.country_slug}`}>

@@ -38,7 +38,6 @@ import MobileAds from "../Ads/MobileAds";
 import Cookie from 'js-cookie'
 import CategoryPageItem from "./CategoryPageItem";
 import CategorySubcategoryItem from "./CategorySubcategoryItem";
-const {Translate} = require('@google-cloud/translate').v2;
 const queryString = require("query-string");
 
 //THIS IS FOR HOVER TOOLTIP TO SHOW A TEXT (convert)
@@ -244,24 +243,7 @@ const loadSubCategory = () => {
 		})
 	}
 
-	const trans = async() => {
-		const translate = await new Translate({key: id})
-		if(language === 'en' || id.length < 2){
-			setText(originalText)
-		} else {
 
-			translate.translate(text, language)
-				.then((res) => {
-					setText(res[0])
-				
-			}).catch(() => {
-				setText(originalText)
-				})
-		}
-	}
-	useEffect( () => {
-		trans()
-	}, [id, language])
 
 	useEffect(() => {
 		loadSubCategory()

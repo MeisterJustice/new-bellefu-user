@@ -11,7 +11,6 @@ import { IconContext } from "react-icons/lib";
 import { FaUsers } from "react-icons/fa";
 import Axios from "axios";
 import MiniSearch from 'minisearch'
-const {Translate} = require('@google-cloud/translate').v2;
 
 
 //THIS IS FOR HOVER TOOLTIP TO SHOW A TEXT (CHANGE CONTRY)
@@ -102,29 +101,10 @@ export default function HeaderNav(props) {
 		})
 	}
 
-	const trans = async() => {
-		const translate = await new Translate({key: id})
-		translate.translate(text, language)
-			.then((res) => {
-				
-					setText(res[0])
-					Cookie.set('language', language)
-					if(number > 0){
-						window.location.reload()
-					}
-			
-		}).catch(() => {
-			setText(originalText)
-			})
-	}
 
 	useEffect(() => {
 		load()
 	}, [])
-	  
-	useEffect( () => {
-		trans()
-	}, [id, language])
 
 	const onShow = () => {
 		setTimeout(() => {
