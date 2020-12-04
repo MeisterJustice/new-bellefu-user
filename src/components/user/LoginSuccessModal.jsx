@@ -5,7 +5,7 @@ import {useHistory } from 'react-router-dom';
 const SuccessModal = (props) => {
   const history = useHistory()
     const onVerification = () => {
-      history.push('/verification')
+      history.push('/')
       window.location.reload()
     }
 
@@ -30,7 +30,7 @@ const SuccessModal = (props) => {
                     {!props.isVerified && (
 
                         <Button onClick={onVerification} className="mt-4 cursor" style={{borderColor: '#ffa500', backgroundColor: '#ffa500', color: 'white'}} size="lg" block>
-                            {props.verify}
+                            {props.browse}
                         </Button>
                     )}
                     {props.isVerified && (
